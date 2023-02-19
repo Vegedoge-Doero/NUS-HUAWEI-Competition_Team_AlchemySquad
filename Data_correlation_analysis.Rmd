@@ -1,0 +1,65 @@
+---
+title: "Data_correlation_analysis"
+author: "Qi Fulin"
+date: "2023-02-19"
+output:
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_float: true
+urlcolor: blue
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(include = TRUE, message = FALSE, warning = FALSE, 
+                      fig.align = "center",  out.width = "80%")
+# rm(list = ls())
+```
+
+### Data_reading
+
+```{r}
+#df_1205 = read.csv("./data/tickdata_20221205.csv")[,3:55]
+#df_1227 = read.csv("./data/tickdata_20221227.csv")[,3:55]
+#df_1228 = read.csv("./data/tickdata_20221228.csv")[,3:55]
+#df_1229 = read.csv("./data/tickdata_20221229.csv")[,3:55]
+```
+
+### Format_setting
+
+```{r}
+col_names = c("Tick_time", "Opening_price", "Highest_price", "Lowest_price", "Latest_price",
+              "Selling_price1", "Selling_price2", "Selling_price3", "Selling_price4", "Selling_price5",
+              "Selling_price6", "Selling_price7", "Selling_price8", "Selling_price9", "Selling_price10",
+              "Selling_vol1", "Selling_vol2", "Selling_vol3", "Selling_vol4", "Selling_vol5",
+              "Selling_vol6", "Selling_vol7", "Selling_vol8", "Selling_vol9", "Selling_vol10",
+              "Buying_price1", "Buying_price2", "Buying_price3", "Buying_price4", "Buying_price5",
+              "Buying_price6", "Buying_price7", "Buying_price8", "Buying_price9", "Buying_price10",
+              "Buying_vol1", "Buying_vol2", "Buying_vol3", "Buying_vol4", "Buying_vol5",
+              "Buying_vol6", "Buying_vol7", "Buying_vol8", "Buying_vol9", "Buying_vol10",
+              "Accumulate_volume", "Accumulate_amount", "Commissioned_buying_volume",
+              "Commissioned_selling_volume", "Limit_up", "Limit_down", 
+              "Weighted_average_buying","Weighted_average_selling")
+colnames(df_1205) = col_names
+colnames(df_1227) = col_names
+colnames(df_1228) = col_names
+colnames(df_1229) = col_names
+```
+
+### Column_correlation
+
+```{r}
+normalisation = function(x){
+  return(as.double(x/max(x)))
+}
+
+correlation = function(x, y){
+  n = length(x)
+  m = length(y)
+  return(sum(x*y)/(n+m)-sum(x)/n * sum(y)/m)
+}
+
+```
+
+
+
