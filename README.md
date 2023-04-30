@@ -5,6 +5,7 @@ The programs contain several parts. Taking the LSTM_Attention_20classes/Alchemy 
 1. Neural network schemes (NNclass.py);
 2. Model training (myTrainModel_json.py);
 3. Real-time trading process (myModel_test_multiple_20230317.py) with pre-trained model (CSV99_LSTM_class20_checkpoint200.pth.tar);
+4. Evaluation (evalua) 
 
 To run the program.
 
